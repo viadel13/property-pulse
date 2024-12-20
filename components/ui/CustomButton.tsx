@@ -1,13 +1,7 @@
 import { Button, Stack, Typography } from "@mui/material";
+import { CustomButtonProps } from "@/types/types";
 
-interface CustomButton {
-  title: string;
-  styles: React.CSSProperties;
-  link?: string;
-  icon?: React.ReactNode;
-}
-
-const CustomButton = ({ title, styles, icon }: CustomButton) => {
+const CustomButton = ({ title, styles, icon }: CustomButtonProps) => {
   return (
     <>
       <Button sx={styles}>

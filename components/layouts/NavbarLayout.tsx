@@ -1,7 +1,10 @@
+"use client";
+
 import {
   AppBar,
   Avatar,
   Badge,
+  Divider,
   IconButton,
   Stack,
   Toolbar,
@@ -16,13 +19,19 @@ import Link from "next/link";
 import { Box } from "@mui/system";
 import { MingcuteGoogleFill } from "@/assets/iconSVG/MingcuteGoogleFill";
 import { IonNotificationsOutline } from "@/assets/iconSVG/IonNotificationsOutline";
-import SimpleBottomNavigation from "@/components/layouts/SimpleBottomNavigation";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { useAppContext } from "@/context/AppContext";
 
 const NavbarLayout = () => {
+  const pathName = usePathname();
+
+  const { isLogin } = useAppContext();
+
   return (
     <AppBar
       elevation={0}
-      position="static"
+      position="sticky"
       sx={{
         backgroundColor: "#1E40AF",
         py: 0.8,
@@ -78,7 +87,7 @@ const NavbarLayout = () => {
             <Link
               key={i}
               href={link.link}
-              className={`text-white ${i === 0 && "bg-black"}  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 ms-3`}
+              className={`text-white ${pathName === link.link ? "bg-black text-white" : "hover:text-blue-300 "}   rounded-md px-3 py-2 ms-3`}
             >
               {link.name}
             </Link>
@@ -93,53 +102,55 @@ const NavbarLayout = () => {
             alignItems: "center",
           }}
         >
-          <CustomButton
-            title={"Login or Register"}
-            icon={<MingcuteGoogleFill />}
-            styles={{
-              backgroundColor: "#374151",
-              color: "white",
-              textTransform: "capitalize",
-              marginRight: 2,
-              display: { xs: "none", md: "flex" },
-            }}
-          />
-
-          <IconButton>
-            <Badge badgeContent={2} color="error">
-              <Stack
-                sx={{
-                  backgroundColor: "#000000",
-                  borderRadius: 999,
-                  width: 30,
-                  height: 30,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <IonNotificationsOutline
-                  height={20}
-                  width={20}
-                  color={"white"}
-                />
-              </Stack>
-            </Badge>
-          </IconButton>
-
-          <IconButton>
-            <Stack
-              sx={{
-                backgroundColor: "white",
-                width: 30,
-                height: 30,
-                borderRadius: 999,
-                justifyContent: "center",
-                alignItems: "center",
+          {!isLogin ? (
+            <CustomButton
+              title={"Login"}
+              icon={<MingcuteGoogleFill />}
+              styles={{
+                backgroundColor: "#374151",
+                color: "white",
+                textTransform: "capitalize",
               }}
-            >
-              <Image alt="profile" src={profile} width={25} height={25} />
-            </Stack>
-          </IconButton>
+            />
+          ) : (
+            <>
+              <IconButton>
+                <Badge badgeContent={2} color="error">
+                  <Stack
+                    sx={{
+                      backgroundColor: "#000000",
+                      borderRadius: 999,
+                      width: 30,
+                      height: 30,
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <IonNotificationsOutline
+                      height={20}
+                      width={20}
+                      color={"white"}
+                    />
+                  </Stack>
+                </Badge>
+              </IconButton>
+
+              <IconButton>
+                <Stack
+                  sx={{
+                    backgroundColor: "white",
+                    width: 30,
+                    height: 30,
+                    borderRadius: 999,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Image alt="profile" src={profile} width={25} height={25} />
+                </Stack>
+              </IconButton>
+            </>
+          )}
         </Box>
       </Toolbar>
     </AppBar>

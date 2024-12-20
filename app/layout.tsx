@@ -1,7 +1,9 @@
 import { ReactNode } from "react";
 import "@/assets/styles/globals.css";
 import NavbarLayout from "@/components/layouts/NavbarLayout";
-import SimpleBottomNavigation from "@/components/layouts/SimpleBottomNavigation";
+import SimpleBottomNavigationLayout from "@/components/layouts/SimpleBottomNavigationLayout";
+import { AppWrapper } from "@/context/AppContext";
+import { Divider } from "@mui/material";
 
 export const metadata = {
   title: "Property Pulse",
@@ -15,9 +17,12 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
       <body
         style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
       >
-        <NavbarLayout />
-        <main style={{ flex: 1 }}>{children}</main>
-        <SimpleBottomNavigation />
+        <AppWrapper>
+          <NavbarLayout />
+          <Divider color={"#0096c7"} />
+          <main style={{ flex: 1 }}>{children}</main>
+          <SimpleBottomNavigationLayout />
+        </AppWrapper>
       </body>
     </html>
   );

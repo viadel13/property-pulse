@@ -5,10 +5,10 @@ export const linksNavbar = [
   },
   {
     name: "Properties",
-    link: "properties",
+    link: "/properties",
   },
   {
     name: "Add Property",
-    link: "/",
+    link: "/properties/add",
   },
 ];

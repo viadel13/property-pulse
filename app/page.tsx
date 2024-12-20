@@ -1,11 +1,12 @@
-const HomePage = () =>{
-    return (
-        <div className='text-2xl'>
+import Box from "@mui/material/Box";
+import Hero from "@/components/common/Hero";
 
-            <p>Welcome</p>
-            <p>HomePage</p>
-        </div>
-    );
-}
+const HomePage = () => {
+  return (
+    <Box>
+      <Hero />
+    </Box>
+  );
+};
 
 export default HomePage;
