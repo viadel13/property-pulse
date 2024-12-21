@@ -1,6 +1,8 @@
 import Box from "@mui/material/Box";
 import { Stack, Typography } from "@mui/material";
 import CustomInput from "@/components/ui/CustomInput";
+import MultipleSelect from "@/components/ui/MultipleSelect";
+import CustomButton from "@/components/ui/CustomButton";
 
 const Hero = () => {
   return (
@@ -45,9 +47,10 @@ const Hero = () => {
           <CustomInput
             placeholder={"Enter Location(City, State, Zip, etc"}
             styles={{
-              caretColor: "white",
+              caretColor: "black",
               color: "black",
               borderRadius: 2,
+              width: { xs: "90%", md: "100%" },
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   border: "1px solid white",
@@ -56,7 +59,7 @@ const Hero = () => {
                   borderColor: "#506677",
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: "#D6B473",
+                  borderColor: "#1976d2",
                 },
               },
               "& .MuiInputBase-input": {
@@ -71,35 +74,17 @@ const Hero = () => {
               },
             }}
           />
-          {/*<CustomInput*/}
-          {/*  placeholder={"Enter Location(City, State, Zip, etc"}*/}
-          {/*  styles={{*/}
-          {/*    caretColor: "white",*/}
-          {/*    color: "white",*/}
-          {/*    borderRadius: 2,*/}
-          {/*    "& .MuiOutlinedInput-root": {*/}
-          {/*      "& fieldset": {*/}
-          {/*        border: "1px solid white",*/}
-          {/*      },*/}
-          {/*      "&:hover fieldset": {*/}
-          {/*        borderColor: "#506677",*/}
-          {/*      },*/}
-          {/*      "&.Mui-focused fieldset": {*/}
-          {/*        borderColor: "#D6B473",*/}
-          {/*      },*/}
-          {/*    },*/}
-          {/*    "& .MuiInputBase-input": {*/}
-          {/*      color: "white",*/}
-          {/*      height: "10px",*/}
-          {/*      borderRadius: 2,*/}
-          {/*      backgroundColor: "white",*/}
-          {/*    },*/}
-          {/*    "& .MuiInputBase-input::placeholder": {*/}
-          {/*      color: "#506677",*/}
-          {/*      opacity: 1,*/}
-          {/*    },*/}
-          {/*  }}*/}
-          {/*/>*/}
+
+          <MultipleSelect />
+          <CustomButton
+            title={"search"}
+            styles={{
+              backgroundColor: "#3B82F6",
+              color: "white",
+              textTransform: "capitalize",
+              padding: "10px 30px",
+            }}
+          />
         </Stack>
       </Stack>
     </Box>
