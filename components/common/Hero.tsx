@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import { Stack, Typography } from "@mui/material";
 import CustomInput from "@/components/ui/CustomInput";
-import MultipleSelect from "@/components/ui/MultipleSelect";
+import CustomSelect from "@/components/ui/CustomSelect";
 import CustomButton from "@/components/ui/CustomButton";
 
 const Hero = () => {
@@ -9,13 +9,14 @@ const Hero = () => {
     <Box
       sx={{
         backgroundColor: "#1E40AF",
-        height: "300px",
+        paddingBottom: { xs: 4, md: 8 },
+        height: "auto",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <Stack>
+      <Stack spacing={2}>
         <Typography
           sx={{
             color: "white",
@@ -29,7 +30,7 @@ const Hero = () => {
         <Typography
           sx={{
             color: "white",
-            fontSize: { xs: "12px", md: "18px" },
+            fontSize: { xs: "13px", md: "18px" },
             textAlign: "center",
             fontWeight: 600,
           }}
@@ -45,12 +46,11 @@ const Hero = () => {
           }}
         >
           <CustomInput
-            placeholder={"Enter Location(City, State, Zip, etc"}
+            placeholder={"Enter Location (City, State, Zip, etc)"}
             styles={{
               caretColor: "black",
               color: "black",
               borderRadius: 2,
-              width: { xs: "90%", md: "100%" },
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
                   border: "1px solid white",
@@ -75,7 +75,7 @@ const Hero = () => {
             }}
           />
 
-          <MultipleSelect />
+          <CustomSelect />
           <CustomButton
             title={"search"}
             styles={{

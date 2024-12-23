@@ -12,7 +12,7 @@ import { useAppContext } from "@/context/AppContext";
 export default function SimpleBottomNavigationLayout() {
   const [value, setValue] = React.useState(0),
     navigate = useRouter(),
-    { isLogin } = useAppContext();
+    { isLogin } = useAppContext()!;
 
   const links = [
     {
@@ -26,14 +26,6 @@ export default function SimpleBottomNavigationLayout() {
       path: "/properties",
     },
   ];
-
-  if (isLogin) {
-    links.push({
-      label: "Add",
-      icon: <AddHome width={25} height={25} />,
-      path: "/properties/add",
-    });
-  }
 
   const handleChange = (event: any, newValue: number) => {
     setValue(newValue);

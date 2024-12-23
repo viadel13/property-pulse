@@ -5,13 +5,13 @@ import { FormControl, MenuItem, OutlinedInput, Select } from "@mui/material";
 import { names } from "@/constants/actions";
 import { useState } from "react";
 
-const MultipleSelect = () => {
-  const [personName, setPersonName] = useState<string>("");
+const CustomSelect = () => {
+  const [personName, setPersonName] = useState<string>("All");
   const MenuProps = {
     PaperProps: {
       style: {
         maxHeight: 48 * 4.5 + 8,
-        width: 250,
+        width: "auto",
       },
     },
   };
@@ -37,9 +37,9 @@ const MultipleSelect = () => {
             },
           }}
         >
-          <MenuItem disabled value="">
-            <em>Placeholder</em>
-          </MenuItem>
+          {/*<MenuItem disabled value="">*/}
+          {/*  <em>Placeholder</em>*/}
+          {/*</MenuItem>*/}
           {names.map((name) => (
             <MenuItem key={name} value={name}>
               {name}
@@ -51,4 +51,4 @@ const MultipleSelect = () => {
   );
 };
 
-export default MultipleSelect;
+export default CustomSelect;

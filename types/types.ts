@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { SxProps } from "@mui/material";
 
 export type AppContextProps = {
   isLogin: boolean;
@@ -13,6 +14,6 @@ export interface CustomButtonProps {
 }
 
 export interface CustomInputProps {
-  styles: React.CSSProperties;
+  styles: SxProps;
   placeholder: string;
 }

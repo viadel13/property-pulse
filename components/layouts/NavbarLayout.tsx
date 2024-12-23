@@ -26,7 +26,7 @@ import { useAppContext } from "@/context/AppContext";
 const NavbarLayout = () => {
   const pathName = usePathname();
 
-  const { isLogin } = useAppContext();
+  const { isLogin } = useAppContext()!;
 
   return (
     <>
