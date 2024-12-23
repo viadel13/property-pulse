@@ -3,6 +3,7 @@ import "@/assets/styles/globals.css";
 import NavbarLayout from "@/components/layouts/NavbarLayout";
 import SimpleBottomNavigationLayout from "@/components/layouts/SimpleBottomNavigationLayout";
 import { AppWrapper } from "@/context/AppContext";
+import { Container } from "@mui/material";
 
 export const metadata = {
   title: "Property Pulse",
@@ -18,7 +19,6 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
       >
         <AppWrapper>
           <NavbarLayout />
-
           <main style={{ flex: 1 }}>{children}</main>
           <SimpleBottomNavigationLayout />
         </AppWrapper>

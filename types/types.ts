@@ -13,6 +13,17 @@ export interface CustomButtonProps {
   icon?: React.ReactNode;
 }
 
+export interface InfoBoxesProps {
+  text: string;
+  description: string;
+  button: React.ReactNode;
+  bgcolor: string;
+}
+
+export interface PropertyCardProps {
+  property: any;
+}
+
 export interface CustomInputProps {
   styles: SxProps;
   placeholder: string;
