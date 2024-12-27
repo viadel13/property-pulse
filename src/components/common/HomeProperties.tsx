@@ -4,9 +4,14 @@ import Grid from "@mui/material/Grid2";
 import properties from "../../../properties.json";
 import PropertyCard from "@/components/common/PropertyCard";
 import CustomButton from "@/components/ui/CustomButton";
+import { fetchProperty } from "@/services/api";
 
-const HomeProperties = () => {
-  const recentProperties = properties.slice(0, 4);
+fetchProperty();
+
+const HomeProperties = async () => {
+  const response = await fetchProperty();
+
+  const recentProperties = response.slice(0, 4);
 
   return (
     <Container
@@ -31,31 +36,39 @@ const HomeProperties = () => {
       >
         Recent Properties
       </Typography>
-      <Grid container spacing={2}>
-        {recentProperties.map((property) => (
-          <Grid key={property._id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
-            <PropertyCard property={property} />
+      {properties.length === 0 ? (
+        <Typography textAlign={"center"} mt={4} fontSize={25}>
+          No properties found
+        </Typography>
+      ) : (
+        <>
+          <Grid container spacing={2}>
+            {recentProperties.map((property: any) => (
+              <Grid key={property._id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+                <PropertyCard property={property} />
+              </Grid>
+            ))}
           </Grid>
-        ))}
-      </Grid>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          mt: 8,
-        }}
-      >
-        <CustomButton
-          title={"View All Properties"}
-          link={"/properties"}
-          styles={{
-            backgroundColor: "#000000",
-            textTransform: "capitalize",
-            color: "white",
-            width: { xs: "60%", sm: "50%", md: "30%" },
-          }}
-        />
-      </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mt: 8,
+            }}
+          >
+            <CustomButton
+              title={"View All Properties"}
+              link={"/properties"}
+              styles={{
+                backgroundColor: "#000000",
+                textTransform: "capitalize",
+                color: "white",
+                width: { xs: "60%", sm: "50%", md: "30%" },
+              }}
+            />
+          </Box>
+        </>
+      )}
     </Container>
   );
 };

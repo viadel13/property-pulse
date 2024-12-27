@@ -28,3 +28,7 @@ export interface CustomInputProps {
   styles: SxProps;
   placeholder: string;
 }
+
+export interface PropertyHeaderImageProps {
+  image: string;
+}

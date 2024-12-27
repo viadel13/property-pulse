@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import { Card, Divider, Paper, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 

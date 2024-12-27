@@ -1,4 +1,4 @@
-import { ClipLoader } from "react-spinners";
+import { CircularProgress, Stack } from "@mui/material";
 
 const override = {
   display: "block",
@@ -6,12 +6,14 @@ const override = {
 };
 const LoadingPage = () => {
   return (
-    <ClipLoader
-      color="#3bf2f8"
-      size={100}
-      cssOverride={override}
-      aria-label="Loading"
-    />
+    <Stack direction="row" justifyContent="center" mt={4}>
+      <CircularProgress
+        size={50}
+        sx={{
+          color: "#3bf2f8",
+        }}
+      />
+    </Stack>
   );
 };
 export default LoadingPage;
