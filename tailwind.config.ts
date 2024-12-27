@@ -8,10 +8,13 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
       },
+      gridTemplateColumns: {
+        '70/30' : "70% 28%"
+      }
+
     },
   },
   plugins: [],
