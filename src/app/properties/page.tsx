@@ -3,7 +3,7 @@ import PropertyCard from "@/components/common/PropertyCard";
 import { Container, Typography } from "@mui/material";
 import axios from "axios";
 import { unstable_cache } from "next/cache";
-import { fetchProperty } from "@/services/api";
+import { fetchProperty } from "@/services/api/properties/api";
 
 fetchProperty();
 

@@ -1,9 +1,15 @@
 import { TextField } from "@mui/material";
 import { CustomInputProps } from "@/types/types";
 
-const CustomInput = ({ styles, placeholder }: CustomInputProps) => {
+const CustomInput = ({
+  styles,
+  placeholder,
+  type = "text",
+  multiline = false,
+  rows = 0,
+}: CustomInputProps) => {
   const responsiveWidth = {
-    xs: "90%",
+    xs: "100%",
     md: "100%",
   };
 
@@ -11,7 +17,9 @@ const CustomInput = ({ styles, placeholder }: CustomInputProps) => {
     <>
       <TextField
         fullWidth
-        type="text"
+        multiline={multiline}
+        type={type}
+        rows={rows}
         placeholder={placeholder}
         sx={{
           ...styles,

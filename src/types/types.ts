@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { SxProps } from "@mui/material";
+import CardPropertyInfos from "@/components/common/CardPropertyInfos";
 
 export type AppContextProps = {
   isLogin: boolean;
@@ -26,9 +27,20 @@ export interface PropertyCardProps {
 
 export interface CustomInputProps {
   styles: SxProps;
-  placeholder: string;
+  placeholder?: string;
+  type?: string;
+  multiline?: boolean;
+  rows?: number;
 }
 
 export interface PropertyHeaderImageProps {
   image: string;
+}
+
+export interface CardPropertyInfosProps {
+  content: React.ReactNode;
+}
+
+export interface PropertyInfosProps {
+  property: any;
 }

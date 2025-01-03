@@ -69,6 +69,10 @@ const NavbarLayout = () => {
                   marginLeft: 1,
                   marginRight: 2,
                   fontSize: 18,
+                  userSelect: "none",
+                  WebkitUserSelect: "none",
+                  MozUserSelect: "none",
+                  msUserSelect: "none",
                 }}
               >
                 PropertyPulse

@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid2";
 import properties from "../../../properties.json";
 import PropertyCard from "@/components/common/PropertyCard";
 import CustomButton from "@/components/ui/CustomButton";
-import { fetchProperty } from "@/services/api";
+import { fetchProperty } from "@/services/api/properties/api";
 
 fetchProperty();
 

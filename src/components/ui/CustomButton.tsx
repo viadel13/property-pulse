@@ -8,7 +8,7 @@ const CustomButton = ({ title, styles, icon, link }: CustomButtonProps) => {
         {icon ? (
           <Typography
             component={"span"}
-            sx={{ display: "block", marginRight: 0.5 }}
+            sx={{ display: "block", marginRight: 0.8 }}
           >
             {icon}
           </Typography>

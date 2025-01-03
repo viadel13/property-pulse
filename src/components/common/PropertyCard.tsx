@@ -25,7 +25,15 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
   return (
     <Paper
       elevation={3}
-      sx={{ maxWidth: "auto", mt: 2, backgroundColor: "white" }}
+      sx={{
+        maxWidth: "auto",
+        mt: 2,
+        backgroundColor: "white",
+        height: "auto",
+        position: "relative",
+        boxShadow:
+          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+      }}
     >
       <Stack>
         <Stack position={"relative"}>
@@ -111,6 +119,8 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
         <Divider />
 
         <Stack
+          // sx={{ bottom: 0, left: 0, right: 0 }}
+          // position={"absolute"}
           p={2}
           direction="row"
           spacing={2}

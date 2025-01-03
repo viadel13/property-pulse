@@ -16,7 +16,6 @@ const notFoundPage = () => {
       }}
     >
       <Paper
-        elevation={3}
         sx={{
           width: { xs: "90%", sm: "60%", md: "40%" },
           height: "300px",
@@ -26,6 +25,8 @@ const notFoundPage = () => {
           justifyContent: "center",
           alignItems: "center",
           gap: 0.5,
+          boxShadow:
+            "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
         }}
       >
         <BxsError width={55} height={55} />
