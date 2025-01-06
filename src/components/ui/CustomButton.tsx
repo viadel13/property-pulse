@@ -1,10 +1,16 @@
 import { Button, Stack, Typography } from "@mui/material";
 import { CustomButtonProps } from "@/types/types";
 
-const CustomButton = ({ title, styles, icon, link }: CustomButtonProps) => {
+const CustomButton = ({
+  title,
+  styles,
+  icon,
+  link,
+  onClick,
+}: CustomButtonProps) => {
   return (
     <>
-      <Button sx={styles} href={link}>
+      <Button sx={styles} href={link} onClick={onClick}>
         {icon ? (
           <Typography
             component={"span"}

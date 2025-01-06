@@ -39,11 +39,11 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
         <Stack position={"relative"}>
           <Image
             priority
-            width="0"
-            height="0"
+            width={1920}
+            height={1080}
             sizes={"100vw"}
             src={`/images/properties/${property.images[0]}`}
-            alt={"a1"}
+            alt={`${property.images[0]}`}
             style={{ width: "100%", height: "auto" }}
           />
           <Stack

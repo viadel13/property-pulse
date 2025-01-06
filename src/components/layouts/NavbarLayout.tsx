@@ -21,13 +21,23 @@ import { Box } from "@mui/system";
 import { MingcuteGoogleFill } from "@/assets/iconSVG/MingcuteGoogleFill";
 import { IonNotificationsOutline } from "@/assets/iconSVG/IonNotificationsOutline";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppContext } from "@/context/AppContext";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const NavbarLayout = () => {
+  const { data: session } = useSession();
   const pathName = usePathname();
-
   const { isLogin } = useAppContext()!;
+  const [providers, setProviders] = useState<any>(null);
+
+  useEffect(() => {
+    const setAuthProviders = async () => {
+      const res = await getProviders();
+      setProviders(res);
+    };
+    setAuthProviders();
+  }, []);
 
   return (
     <>
@@ -124,15 +134,20 @@ const NavbarLayout = () => {
               }}
             >
               {!isLogin ? (
-                <CustomButton
-                  title={"Login"}
-                  icon={<MingcuteGoogleFill />}
-                  styles={{
-                    backgroundColor: "#374151",
-                    color: "white",
-                    textTransform: "capitalize",
-                  }}
-                />
+                providers &&
+                Object.values(providers).map((provider: any, index) => (
+                  <CustomButton
+                    onClick={() => signIn(provider.id)}
+                    key={index}
+                    title={"Login"}
+                    icon={<MingcuteGoogleFill />}
+                    styles={{
+                      backgroundColor: "#374151",
+                      color: "white",
+                      textTransform: "capitalize",
+                    }}
+                  />
+                ))
               ) : (
                 <>
                   <IconButton>

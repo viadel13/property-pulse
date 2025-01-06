@@ -5,7 +5,7 @@ const API_URl = process.env.NEXT_PUBLIC_API_URL;
 
 export const fetchProperty = unstable_cache(
   async () => {
-    const response = await axios.get(`http://localhost:3001/property`);
+    const response = await axios.get(`${API_URl}/property`);
     return response.data;
   },
   ["property"],
@@ -13,8 +13,6 @@ export const fetchProperty = unstable_cache(
 );
 
 export const fetchPropertyId = async (propertyId: string) => {
-  const response = await axios.get(
-    `http://localhost:3001/property/${propertyId}`,
-  );
+  const response = await axios.get(`${API_URl}/property/${propertyId}`);
   return response.data;
 };

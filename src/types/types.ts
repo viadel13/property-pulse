@@ -12,6 +12,7 @@ export interface CustomButtonProps {
   styles: SxProps;
   link?: string;
   icon?: React.ReactNode;
+  onClick?: () => void;
 }
 
 export interface InfoBoxesProps {
